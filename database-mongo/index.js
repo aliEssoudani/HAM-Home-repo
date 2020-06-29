@@ -11,19 +11,49 @@ db.once("open", function () {
   console.log("mongoose connected successfully");
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String,
+var userSchema = mongoose.Schema({
+  username: String,
+  email: String,
+  pssword: String,
+  photo: String,
+  name:String,
+  age:String,
+  phoneNumber:Number,
+  posts:Array,
 });
 
-var Item = mongoose.model("Item", itemSchema);
+var User = mongoose.model("User", userSchema);
 
-var selectAll = function (callback) {
-  Item.find({}, function (err, items) {
+var selectAllUser = function (callback) {
+  User.find({}, function (err, users) {
     if (err) {
       callback(err, null);
     } else {
-      callback(null, items);
+      callback(null, users);
+    }
+  });
+};
+
+var postSchema = mongoose.Schema({
+  image: Array,
+  price: Number,
+  rooms: String,
+  adress: String,
+  rating:Number,
+  description:String,
+  date:String,
+  availibility:Boolean,
+  
+});
+
+var Post = mongoose.model("Post", postSchema);
+
+var selectAllPost = function (callback) {
+  User.find({}, function (err, posts) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, posts);
     }
   });
 };
