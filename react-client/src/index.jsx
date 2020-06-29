@@ -24,9 +24,7 @@ class App extends React.Component {
       },
     });
   }
-  handleClick() {
-    alert("hello world");
-  }
+
   render() {
     return (
       <div>
