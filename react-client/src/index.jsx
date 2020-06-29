@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 import SelectAction from "./components/selectAction.jsx";
+import SearchedHome from "./components/searchedHome.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class App extends React.Component {
   // }
 
   render() {
-    return <SelectAction />;
+    return <SearchedHome />;
   }
 }
 

@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import darkmode from "../../dist/script.js";
+// import RentView from "./rentView.jsx";
+// // import PostView from "./postView.jsx";
 import {
   Form,
   Button,
@@ -19,8 +21,15 @@ class SelectAction extends React.Component {
     this.state = {};
   }
 
-  seePost() {}
-  addPost() {}
+  // we should see if we need some props or information to pass to the other component
+  seePost() {
+    ReactDOM.render(<RentView />, document.getElementById("app"));
+
+    // we should see if we need some props or information to pass to the other component
+  }
+  addPost() {
+    ReactDOM.render(<PostView />, document.getElementById("app"));
+  }
 
   render() {
     return (
@@ -33,7 +42,11 @@ class SelectAction extends React.Component {
             <Nav.Link className="logout">LogOut</Nav.Link>
           </Nav>
         </Navbar>
-
+        <center>
+          <div>
+            <h1>Get Started With HAMhome</h1>
+          </div>
+        </center>
         <center>
           <Card id="card" style={{ width: "18rem" }}>
             <Card.Img

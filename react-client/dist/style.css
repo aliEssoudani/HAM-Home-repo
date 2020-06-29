@@ -1,16 +1,18 @@
+/*css for the select action component*/
+/*/////////////////////////////////////*/
 .logout {
   margin-left: 900px;
 }
 
 #card {
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 #card1 {
   display: inline-block;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 50px;
 }
 #card1:hover {
   background-color: bisque;
@@ -26,4 +28,32 @@
 
 #rentimg {
   background-color: lightseagreen;
+}
+
+/*css for the searched home component*/
+/*/////////////////////////////////////*/
+#caroussel {
+  margin-top: 5px;
+  margin-right: 5px;
+  float: right;
+  width: 49%;
+  height: 300px;
+  display: inline-block;
+}
+#according {
+  height: 400px;
+  width: 100%;
+
+  margin-left: 0px;
+}
+#context {
+  margin-top: 5px;
+  margin-left: 5px;
+  float: left;
+
+  height: 400px;
+  width: 49%;
+}
+#imagecaroussel {
+  height: 300px;
 }
