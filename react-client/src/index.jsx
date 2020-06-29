@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
-import List from "./components/List.jsx";
+import List from "./components/homePage.jsx";
 
 class App extends React.Component {
   constructor(props) {
