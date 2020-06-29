@@ -1,0 +1,29 @@
+.logout {
+  margin-left: 900px;
+}
+
+#card {
+  display: inline-block;
+  margin-top: 30px;
+}
+
+#card1 {
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+#card1:hover {
+  background-color: bisque;
+}
+
+#card:hover {
+  background-color: bisque;
+}
+#postimg {
+  background-color: rgb(70, 187, 181);
+  height: 216px;
+}
+
+#rentimg {
+  background-color: lightseagreen;
+}
