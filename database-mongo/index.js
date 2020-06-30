@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/test");
+mongoose.connect("mongodb://localhost:27017/hamHome");
 
 var db = mongoose.connection;
 
@@ -16,10 +16,10 @@ var userSchema = mongoose.Schema({
   email: String,
   pssword: String,
   photo: String,
-  name:String,
-  age:String,
-  phoneNumber:Number,
-  posts:Array
+  name: String,
+  age: String,
+  phoneNumber: Number,
+  posts: Array,
 });
 
 var User = mongoose.model("User", userSchema);
@@ -35,15 +35,14 @@ var selectAllUser = function (callback) {
 };
 
 var postSchema = mongoose.Schema({
-  image: Array,
+  imagesrc: String,
   price: Number,
   rooms: String,
   adress: String,
-  rating:Number,
-  description:String,
-  date:String,
-  availibility:Boolean
-  
+  rating: Number,
+  description: String,
+  date: String,
+  availibility: Boolean,
 });
 
 var Post = mongoose.model("Post", postSchema);
@@ -58,6 +57,6 @@ var selectAllPost = function (callback) {
   });
 };
 
-module.exports.selectAllUser = selectAllUser;
+module.exports.Post = Post;
 module.exports.selectAllPost = selectAllPost;
-
+module.exports.selectAllUser = selectAllUser;
