@@ -27,7 +27,7 @@ class App extends React.Component {
   // }
 
   render() {
-    return <SearchedHome />;
+    return <SelectAction />;
   }
 }
 

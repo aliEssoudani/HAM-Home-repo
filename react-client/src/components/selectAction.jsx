@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import darkmode from "../../dist/script.js";
 // import RentView from "./rentView.jsx";
-// // import PostView from "./postView.jsx";
+import PostView from "./postView.jsx";
+import ProfileView from "./profileView.jsx";
 import {
   Form,
   Button,
@@ -31,6 +32,10 @@ class SelectAction extends React.Component {
     ReactDOM.render(<PostView />, document.getElementById("app"));
   }
 
+  seeProfile() {
+    ReactDOM.render(<ProfileView />, document.getElementById("app"));
+  }
+
   render() {
     return (
       <div>
@@ -38,7 +43,7 @@ class SelectAction extends React.Component {
           <Navbar.Brand>HAMhome</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link></Nav.Link>
-            <Nav.Link>Profile</Nav.Link>
+            <Nav.Link onClick={this.seeProfile.bind(this)}>Profile</Nav.Link>
             <Nav.Link className="logout">LogOut</Nav.Link>
           </Nav>
         </Navbar>
