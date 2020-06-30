@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/hamHome");
+mongoose.connect("mongodb://localhost:27017/hamHome",{ useNewUrlParser: true , useUnifiedTopology: true});
 
 var db = mongoose.connection;
 
@@ -58,5 +58,6 @@ var selectAllPost = function (callback) {
 };
 
 module.exports.Post = Post;
+module.exports.db = db;
 module.exports.selectAllPost = selectAllPost;
 module.exports.selectAllUser = selectAllUser;
