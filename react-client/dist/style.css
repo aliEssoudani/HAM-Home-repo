@@ -61,10 +61,61 @@
 /*css for the postView component*/
 /*/////////////////////////////////////*/
 
-.rent {
+.profil {
   margin: 3% 10%;
   border: 2px solid rgb(128, 140, 255);
   padding: 1%;
+  position: absolute;
+}
+
+/* .container {
+  position: relative;
+  float: right;
+} */
+
+#caroussel {
+  margin-left: 8px;
+  /* width: 1px; */
+}
+
+.rent {
+  width: 50%;
+  height: 200px;
+  margin: 3% 10%;
+  margin-top: 0px;
+
+  padding: 1%;
+}
+#description {
+  height: 40px;
+  width: 200%;
+}
+#submitPost {
+  width: 50%;
+  margin-top: 1px;
+  margin-right: 5px;
+}
+/* #price {
+  width: 70%;
+} */
+#address {
+  width: 200%;
+}
+#rooms {
+  width: 200%;
+}
+#first {
+  width: 730px;
+}
+#second {
+  float: left;
+  border: 3px solid black;
+  border-radius: 20px;
+  /* float: right; */
+  height: 300px;
+  width: 300px;
+  margin-left: 65%;
+  margin-top: -180px;
 }
 
 /*css for the profileView component*/
@@ -88,8 +139,6 @@ img {
   vertical-align: middle;
   border-style: none;
 }
-/* About Me 
----------------------*/
 .about-text h3 {
 font-size: 45px;
 font-weight: 700;
