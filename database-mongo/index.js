@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/test");
+mongoose.connect("mongodb://localhost:27017/hamHome");
 
 var db = mongoose.connection;
 
@@ -35,26 +35,28 @@ var selectAllUser = function (callback) {
 };
 
 var postSchema = mongoose.Schema({
-  image: Array,
-  price: Number,
+  // image: String,
+  // price: Number,
   rooms: String,
-  adress: String,
-  rating: Number,
+  // adress: String,
+  // rating: Number,
   description: String,
-  date: String,
-  availibility: Boolean,
+  // date: String,
+  // availibility: Boolean,
 });
 
 var Post = mongoose.model("Post", postSchema);
 
 var selectAllPost = function (callback) {
-  User.find({}, function (err, posts) {
+  Post.find({}, function (err, posts) {
     if (err) {
-      callback(err, null);
     } else {
+      callback(err, null);
       callback(null, posts);
     }
   });
 };
 
+module.exports.Post = Post;
 module.exports.selectAllPost = selectAllPost;
+module.exports.selectAllUser = selectAllUser;

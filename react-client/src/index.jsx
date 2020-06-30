@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import $ from "jquery";
 import SelectAction from "./components/selectAction.jsx";
 import SearchedHome from "./components/searchedHome.jsx";
+import ProfileView from "./components/profileView.jsx";
+import PostView from "./components/postView.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +29,7 @@ class App extends React.Component {
   // }
 
   render() {
-    return <SelectAction />;
+    return <ProfileView />;
   }
 }
 
