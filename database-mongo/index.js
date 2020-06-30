@@ -35,14 +35,14 @@ var selectAllUser = function (callback) {
 };
 
 var postSchema = mongoose.Schema({
-  // image: String,
-  // price: Number,
+  imagesrc: String,
+  price: Number,
   rooms: String,
-  // adress: String,
-  // rating: Number,
+  adress: String,
+  rating: Number,
   description: String,
-  // date: String,
-  // availibility: Boolean,
+  date: String,
+  availibility: Boolean,
 });
 
 var Post = mongoose.model("Post", postSchema);
@@ -50,8 +50,8 @@ var Post = mongoose.model("Post", postSchema);
 var selectAllPost = function (callback) {
   Post.find({}, function (err, posts) {
     if (err) {
-    } else {
       callback(err, null);
+    } else {
       callback(null, posts);
     }
   });

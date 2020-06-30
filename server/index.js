@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var posts = require("../database-mongo");
 
 var app = express();
-
+app.use(bodyParser.json());
 app.use(express.static(__dirname + "/../react-client/dist"));
 
 app.post("/posts", (req, res) => {
