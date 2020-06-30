@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import darkmode from "../../dist/script.js";
+import ProfileView from "./profileView.jsx";
+import SelectAction from "./selectAction.jsx";
 import {
   Form,
   Button,
@@ -22,15 +24,22 @@ class SearchedHome extends React.Component {
     super(props);
     this.state = {};
   }
+  
+  seeProfile() {
+    ReactDOM.render(<ProfileView />, document.getElementById("app"));
+  }
+  seeSelectAction() {
+    ReactDOM.render(<SelectAction />, document.getElementById("app"));
+  }
 
   render() {
     return (
       <div>
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand>HAMhome</Navbar.Brand>
+          <Navbar.Brand onClick={this.seeSelectAction.bind(this)}>HAMhome</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link></Nav.Link>
-            <Nav.Link>Profile</Nav.Link>
+            <Nav.Link onClick={this.seeProfile.bind(this)}>Profile</Nav.Link>
             <Nav.Link className="logout">LogOut</Nav.Link>
           </Nav>
         </Navbar>

@@ -33,9 +33,9 @@ class PostView extends React.Component {
       price,
       rooms,
       adress,
-      rating: "5",
+      rating: "not Rated",
       description,
-      date: "6545",
+      date: new Date(),
       availibility: true,
     });
     // .then(
