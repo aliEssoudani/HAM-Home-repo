@@ -16,10 +16,10 @@ var userSchema = mongoose.Schema({
   email: String,
   pssword: String,
   photo: String,
-  name:String,
-  age:String,
-  phoneNumber:Number,
-  posts:Array,
+  name: String,
+  age: String,
+  phoneNumber: Number,
+  posts: Array,
 });
 
 var User = mongoose.model("User", userSchema);
@@ -39,11 +39,10 @@ var postSchema = mongoose.Schema({
   price: Number,
   rooms: String,
   adress: String,
-  rating:Number,
-  description:String,
-  date:String,
-  availibility:Boolean,
-  
+  rating: Number,
+  description: String,
+  date: String,
+  availibility: Boolean,
 });
 
 var Post = mongoose.model("Post", postSchema);
@@ -58,4 +57,4 @@ var selectAllPost = function (callback) {
   });
 };
 
-module.exports.selectAll = selectAll;
+module.exports.selectAllPost = selectAllPost;

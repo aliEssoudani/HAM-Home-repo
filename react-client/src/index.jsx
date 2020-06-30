@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
-import List from "./components/homePage.jsx";
+import SelectAction from "./components/selectAction.jsx";
+import SearchedHome from "./components/searchedHome.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,27 +12,22 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    $.ajax({
-      url: "/items",
-      success: (data) => {
-        this.setState({
-          items: data,
-        });
-      },
-      error: (err) => {
-        console.log("err", err);
-      },
-    });
-  }
+  // componentDidMount() {
+  //   $.ajax({
+  //     url: "/items",
+  //     success: (data) => {
+  //       this.setState({
+  //         items: data,
+  //       });
+  //     },
+  //     error: (err) => {
+  //       console.log("err", err);
+  //     },
+  //   });
+  // }
 
   render() {
-    return (
-      <div>
-        <h1>list</h1>
-        <List items={this.state.items} />
-      </div>
-    );
+    return <SearchedHome />;
   }
 }
 
