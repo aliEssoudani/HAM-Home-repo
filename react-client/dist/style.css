@@ -64,6 +64,7 @@
 }
 
 #chatbox {
+  display: none;
   width: 300px;
   margin-top: -230px;
   height: 200px;
@@ -296,7 +297,7 @@ mark {
 #chat-window {
   height: 100px;
   overflow: auto;
-  background: #f9f9f9;
+  background: rgb(195, 185, 185);
 }
 
 #output p {

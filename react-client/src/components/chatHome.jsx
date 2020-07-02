@@ -1,10 +1,35 @@
 import React from "react";
 import ReactDom from "react-dom";
+import $ from "jquery";
 
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      message: "",
+      handel: "",
+      btn: "",
+      output: "",
+      feedback: "",
+    };
   }
+  //   sendf() {
+  //     var btn = document.getElementById("send");
+  //     btn.addEventListener("click", function () {
+  //       socket.emit("chat", {
+  //         message: message.value,
+  //         handle: handle.value,
+  //       });
+  //       message.value = "";
+  //     });
+  //   }
+
+  //   messagef() {
+  //     var message = document.getElementById("message");
+  //     message.addEventListener("keypress", function () {
+  //       socket.emit("typing", handle.value);
+  //     });
+  //   }
 
   render() {
     return (
