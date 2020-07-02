@@ -22,36 +22,53 @@ import axios from "axios";
 class PostView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      file:null
+    };
   }
+//   onFormSubmit(e){
+//     e.preventDefault();
+//     const formData = new FormData();
+//     formData.append('myImage',this.state.file);
+//     const config = {
+//         headers: {
+//             'content-type': 'multipart/form-data'
+//         }
+//     };
+//     axios.post("/upload",formData,config)
+//         .then((response) => {
+//             alert("The file is successfully uploaded");
+//         }).catch((error) => {
+//     });
+// }
+// onChange(e) {
+//     this.setState({file:e.target.files[0]});
+// }
+
   handleClick() {
+    const username = $("#username").val();
     const price = $("#price").val();
     const rooms = $("#rooms").val();
-    const imagesrc = $("#imagesrc").val();
-    const adress = $("#adress").val();
+    const imagesrc = "./uploads/" + $("#imagesrc").val().slice(12);
+    const address = $("#address").val();
     const description = $("#description").val();
-
-    console.log(price, rooms, description);
-    axios.post("/posts", {
-      imagesrc,
-      price,
-      rooms,
-      adress,
-      rating: 5,
-      description,
-      date: new Date(),
-      availibility: true,
-    });
-    // .then(
-    //   (response) => {
-    //     console.log(response);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
-
-    ReactDOM.render(<SelectAction />, document.getElementById("app"));
+    const date = new Date().toString()
+    const rating = 0
+    
+    if (username !== "" && price !== "" && rooms !== "" && imagesrc !== "" && address !== "" && description !== "") {
+      axios.post("/posts", {
+        username,
+        imagesrc,
+        price,
+        rooms,
+        address,
+        rating: rating,
+        description,
+        date: date,
+        availibility: true,
+      });
+      ReactDOM.render(<ProfileView />, document.getElementById("app"));
+    }
   }
 
   seeProfile() {
@@ -71,6 +88,13 @@ class PostView extends React.Component {
         </Navbar>
         <div id="first">
           <Form className="rent">
+          <Form.Group as={Col}>
+              <Form.Label>
+                {" "}
+                <h5>username :</h5>{" "}
+              </Form.Label>
+              <Form.Control type="text" id="username" value="Mohamed Amine Oueslati" />
+            </Form.Group>
             <Form.Group as={Col}>
             <Form.Label>
                 {" "}
@@ -84,7 +108,7 @@ class PostView extends React.Component {
                 // onChange={handleChange} isInvalid={!!errors.file} feedback={errors.file} feedbackTooltip
               />
             </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationFormikUsername2">
+            <Form.Group as={Col} md="6">
               <Form.Label>
                 {" "}
                 <h5>Price :</h5>{" "}
@@ -104,8 +128,7 @@ class PostView extends React.Component {
                 </InputGroup.Prepend>
               </InputGroup>
             </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridRooms">
+            <Form.Group as={Col} >
               <Form.Label>
                 {" "}
                 <h5>Rooms :</h5>{" "}
@@ -113,14 +136,14 @@ class PostView extends React.Component {
               <Form.Control type="text" placeholder="Rooms" id="rooms" />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridAddress1">
+            <Form.Group as={Col} >
               <Form.Label>
                 <h5>Address :</h5>
               </Form.Label>
               <Form.Control placeholder="1234 Main St" id="address" />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridDescription">
+            <Form.Group as={Col} >
               <Form.Label>
                 {" "}
                 <h5>Description :</h5>{" "}
@@ -131,16 +154,6 @@ class PostView extends React.Component {
                 id="description"
               ></textarea>
             </Form.Group>
-
-            <Button
-              as={Col}
-              variant="primary"
-              type="submit"
-              id="submitPost"
-              onClick={this.handleClick.bind(this)}
-            >
-              Submit
-            </Button>
           </Form>
         </div>
         <div id="second">
@@ -163,6 +176,11 @@ class PostView extends React.Component {
               <h4>use the Google map</h4>
             </li>
           </ul>
+          <br/>
+          <center>
+          <Button as={Col} variant="primary" type="submit"
+              id="submitPost" onClick={this.handleClick.bind(this)}>Submit</Button>
+            </center>
         </div>
       </div>
     );
