@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import darkmode from "../../dist/script.js";
 import ProfileView from "./profileView.jsx";
 import SelectAction from "./selectAction.jsx";
+import ChatRoom from "./chatHome.jsx";
+import PostView from "./postView.jsx";
 import {
   Form,
   Button,
@@ -24,7 +26,7 @@ class SearchedHome extends React.Component {
     super(props);
     this.state = {};
   }
-  
+
   seeProfile() {
     ReactDOM.render(<ProfileView />, document.getElementById("app"));
   }
@@ -32,11 +34,19 @@ class SearchedHome extends React.Component {
     ReactDOM.render(<SelectAction />, document.getElementById("app"));
   }
 
+  chat() {
+    
+    ReactDOM.render(<ChatRoom />, document.getElementById("chatbox"));
+    $("#startchat").hide();
+  }
+
   render() {
     return (
       <div>
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand onClick={this.seeSelectAction.bind(this)}>HAMhome</Navbar.Brand>
+          <Navbar.Brand onClick={this.seeSelectAction.bind(this)}>
+            HAMhome
+          </Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link></Nav.Link>
             <Nav.Link onClick={this.seeProfile.bind(this)}>Profile</Nav.Link>
@@ -80,10 +90,7 @@ class SearchedHome extends React.Component {
                 </Accordion.Toggle>
               </Card.Header>
               <Accordion.Collapse eventKey="0">
-                <Card.Body>
-                  {" "}
-                  {this.props.post.description}{" "}
-                </Card.Body>
+                <Card.Body> {this.props.post.description} </Card.Body>
               </Accordion.Collapse>
             </Card>
             <Card>
@@ -93,10 +100,7 @@ class SearchedHome extends React.Component {
                 </Accordion.Toggle>
               </Card.Header>
               <Accordion.Collapse eventKey="1">
-                <Card.Body>
-                  {" "}
-                  {this.props.post.address}{" "}
-                </Card.Body>
+                <Card.Body> {this.props.post.address} </Card.Body>
               </Accordion.Collapse>
             </Card>
             <Card>
@@ -109,18 +113,21 @@ class SearchedHome extends React.Component {
                 <Card.Body>
                   {" "}
                   Price : ${this.props.post.price}
-                  <br/>
+                  <br />
                   Rooms : {this.props.post.rooms}
-                  <br/>
+                  <br />
                   Rating : {this.props.post.rating}
-                  <br/>
-                  Availibility : {this.props.post.availibility}
-                  {" "}
+                  <br />
+                  Availibility : {this.props.post.availibility}{" "}
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
           </Accordion>
         </div>
+        <Button variant="primary" id="startchat" onClick={this.chat.bind(this)}>
+          Chat
+        </Button>
+        <div id="chatbox"></div>
       </div>
     );
   }
