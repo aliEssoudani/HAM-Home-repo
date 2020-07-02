@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/hamHome",{ useNewUrlParser: true , useUnifiedTopology: true});
+mongoose.connect("mongodb://localhost:27017/hamHome",{ useMongoClient:true});
 
 var db = mongoose.connection;
 
@@ -35,10 +35,11 @@ var selectAllUser = function (callback) {
 };
 
 var postSchema = mongoose.Schema({
+  username: String,
   imagesrc: String,
   price: Number,
   rooms: String,
-  adress: String,
+  address: String,
   rating: Number,
   description: String,
   date: String,

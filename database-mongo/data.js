@@ -1,6 +1,7 @@
 
 const samplePosts = [
-  {
+  { 
+    username: "Michael V. Kline",
     imagesrc: ['https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/IS7a7ygdodown61000000000.webp',
         'https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISz35my6k5gzn61000000000.webp',
         'https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/IS3znoyz69kvb50000000000.webp',
@@ -13,7 +14,8 @@ const samplePosts = [
     date: "2018-04-19T12:59-0500",
     availibility: true
   },
-  {
+  { 
+    username: "Robert P. Collins",
     imagesrc: ["https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISzn860zub6asq0000000000.webp"],
     price: 2.200,
     rooms: '3 bedrooms - 1 bathroom',
@@ -24,6 +26,7 @@ const samplePosts = [
     availibility: true
   },
   {
+    username: "Pablo P. Prescott",
     imagesrc: ["https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISr1q2xzuw0e7p0000000000.webp",
         "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISjvnqetqosg7p0000000000.webp",
         "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISbplewmmgkj7p0000000000.webp",
@@ -37,6 +40,7 @@ const samplePosts = [
     availibility: true
   },
   {
+    username: "Mario E. Randall",
     imagesrc: ["https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISr1ikh9b94nts1000000000.webp",
         "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISbpdwgw2tnsts1000000000.webp",
         "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISzn0wetdga9us1000000000.webp",
@@ -50,6 +54,7 @@ const samplePosts = [
     availibility: true
   },
   {
+    username: "Julia E. Folse",
     imagesrc: ["https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISbp1frfzuv8xp0000000000.webp",
             "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISb17niunaqump0000000000.webp",
             "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISvcxqq2refexp0000000000.webp",
@@ -64,6 +69,7 @@ const samplePosts = [
     availibility: true
   },
   {
+    username: "Natasha D. Strausbaugh",
     imagesrc: ["https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISfglje70719sx1000000000.webp",
             "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISnmnvwd4f96sx1000000000.webp",
             "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/IS7aj7w0wysbsx1000000000.webp",
@@ -78,6 +84,7 @@ const samplePosts = [
     availibility: true
   },
   {
+    username: "Maryanne D. Bode",
     imagesrc: ["https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISf0pbiipvwc7b0000000000.webp",
             "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISjntt67wstk4b1000000000.webp",
             "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISr98uc30qg3201000000000.webp"
@@ -91,6 +98,7 @@ const samplePosts = [
     availibility: true
   },
   {
+    username: "Vicki A. Bartlett",
     imagesrc: ["https://cdn2.french-property.com/image/upload/v1591968944/1-IFPC30109-c67033450940256e58c0.jpg",
             "https://cdn2.french-property.com/image/upload/v1591968944/1-IFPC30109-0a7aeb05188c36c19cd4.jpg",
             "https://cdn2.french-property.com/image/upload/v1591968944/1-IFPC30109-1aa05d40cd83974de7c9.jpg",
@@ -105,6 +113,7 @@ const samplePosts = [
     availibility: true
   },
   {
+    username: "Shane V. Brown",
     imagesrc: ["https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/IS3nmnnhxzddow1000000000.webp",
             "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISjro43pk248xw1000000000.webp",
             "https://photos.zillowstatic.com/uncropped_scaled_within_1536_1152/ISnygmm2muk55x1000000000.webp",

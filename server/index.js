@@ -1,18 +1,48 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var multer = require("multer");
 var samplePosts = require("../database-mongo/data.js")
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
-// var items = require('../database-mysql');
 var posts = require("../database-mongo");
+var path = require("path");
 
 var app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/../react-client/dist"));
 
 
+// const storage = multer.diskStorage({
+//   destination: "../react-client/dist/uploads",
+//   filename: function(req, file, cb) {
+//     cb(null, 'IMAGE-' + Date.now() + path.extname(file.originalname))
+//   }
+// })
+// const upload = multer({storage:storage, limits:{fileSize: 1000000}}).single('image')
+// app.post("/upload", (req,res)=> {
+//   upload(req, res ,(err)=> {
+//     if(err) {
+//       res.render('index', {msg: err})
+//     } else {
+//       console.log(req.file)
+//       res.send('test')
+//     }
+//   })
+// })
+
+
+
 app.post("/posts", (req, res) => {
   console.log(req.body);
   posts.Post.create(req.body);
+});
+
+app.get("/posts", (req, res) => {
+  posts.Post.find({username : "Mohamed Amine Oueslati"},function (err, data) {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+    }
+  })
 });
 
 const insertSamplePosts = function() {
@@ -27,25 +57,25 @@ const insertSamplePosts = function() {
 };
 insertSamplePosts();
 
-app.get("/posts", (req, res) => {
-  posts.selectAllPost((err, data) => {
-    if (err) {
-      res.sendStatus(500);
-    } else {
-      res.json(data);
-    }
-  });
-});
-app.get("/items", function (req, res) {
-  items.selectAll(function (err, data) {
-    console.log(data);
-    if (err) {
-      res.sendStatus(500);
-    } else {
-      res.json(data);
-    }
-  });
-});
+// app.get("/posts", (req, res) => {
+//   posts.selectAllPost((err, data) => {
+//     if (err) {
+//       res.sendStatus(500);
+//     } else {
+//       res.json(data);
+//     }
+//   });
+// });
+// app.get("/items", function (req, res) {
+//   items.selectAll(function (err, data) {
+//     console.log(data);
+//     if (err) {
+//       res.sendStatus(500);
+//     } else {
+//       res.json(data);
+//     }
+//   });
+// });
 
 app.listen(3000, function () {
   console.log("listening on port 3000!");

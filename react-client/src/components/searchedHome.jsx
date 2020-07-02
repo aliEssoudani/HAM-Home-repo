@@ -49,7 +49,7 @@ class SearchedHome extends React.Component {
               <img
                 id="imagecaroussel"
                 className="d-block w-100"
-                src="https://d2u8towkwolubl.cloudfront.net/wp-content/uploads/2019/08/RentalHome.jpg"
+                src={this.props.post.imagesrc}
                 alt="First slide"
               />
             </Carousel.Item>
@@ -82,10 +82,7 @@ class SearchedHome extends React.Component {
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
                   {" "}
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                  saepe tempore minima harum magni minus animi eaque, nam
-                  perferendis ex reprehenderit consectetur. Sint officiis
-                  molestiae voluptates eum, architecto enim omnis.{" "}
+                  {this.props.post.description}{" "}
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -98,7 +95,7 @@ class SearchedHome extends React.Component {
               <Accordion.Collapse eventKey="1">
                 <Card.Body>
                   {" "}
-                  ariana technopole 2541 tunis near esta product{" "}
+                  {this.props.post.address}{" "}
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -111,11 +108,14 @@ class SearchedHome extends React.Component {
               <Accordion.Collapse eventKey="2">
                 <Card.Body>
                   {" "}
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Facilis, dignissimos recusandae. Eos distinctio velit officia
-                  perferendis. Suscipit voluptatum aspernatur, vero harum
-                  consectetur illo enim odio! Libero molestiae totam molestias
-                  iure.{" "}
+                  Price : ${this.props.post.price}
+                  <br/>
+                  Rooms : {this.props.post.rooms}
+                  <br/>
+                  Rating : {this.props.post.rating}
+                  <br/>
+                  Availibility : {this.props.post.availibility}
+                  {" "}
                 </Card.Body>
               </Accordion.Collapse>
             </Card>

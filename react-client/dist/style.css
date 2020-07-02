@@ -91,9 +91,8 @@
   width: 200%;
 }
 #submitPost {
-  width: 50%;
-  margin-top: 1px;
-  margin-right: 5px;
+  width: 80%;
+  margin-top: 20%;
 }
 /* #price {
   width: 70%;
@@ -120,6 +119,26 @@
 
 /*css for the profileView component*/
 /*/////////////////////////////////////*/
+
+.profilePosts {
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+  margin-left: 30px;
+  margin-top: 30px;
+  border: 2px solid rgb(128, 140, 255);
+}
+
+.postDetails {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #20247b;
+}
 
 body{
   color: #6F8BA4;

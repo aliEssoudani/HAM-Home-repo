@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PostView from './postView.jsx';
+import SearchedHome from './searchedHome.jsx';
+// import $ from "jquery";
+import axios from "axios";
 import {
   Form,
   Button,
@@ -19,6 +22,12 @@ import {
 import SelectAction from "./selectAction.jsx";
 
 class ProfileView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: []
+    }
+  }
 
   addPost() {
     ReactDOM.render(<PostView />, document.getElementById("app"));
@@ -28,7 +37,34 @@ class ProfileView extends React.Component {
     ReactDOM.render(<SelectAction />, document.getElementById("app"));
   }
 
+  seePosts() {
+      axios.get("/posts")
+        .then(res => {
+          const posts = res.data;
+          this.setState({ posts });
+          console.log(this.state.posts)
+        })
+  }
+
+  updatePost(i) {
+    console.log(this.state.posts[i])
+    ReactDOM.render(<SearchedHome post={this.state.posts[i]}/>, document.getElementById("app"));
+  }
+
   render() {
+      const displayPosts = this.state.posts.map((item,i)=> {
+        return (
+          <div className= "profilePosts" onClick={this.updatePost.bind(this,i)} key={i} >
+          <p className="postDetails"><img src={item.imagesrc} width='280px' height='170px'/></p>
+          <p className="postDetails">Price : ${item.price}</p>
+          <p className="postDetails">Rooms : {item.rooms}</p>
+          <p className="postDetails">Address : {item.address}</p>
+          {/* <p>{this.props.description}</p>
+          <p>{this.props.date}</p>
+          <p>{this.props.rating}</p> */}
+        </div>
+        )
+      }) 
     return (
       <div>
         <Navbar bg="dark" variant="dark">
@@ -94,14 +130,14 @@ class ProfileView extends React.Component {
                   </div>
                 </div>
                 <div className="col-6 col-lg-3">
-                  <div className="count-data text-center">
-                    <h6 className="count h2" data-to="150" data-speed="150">5</h6>
+                  <div className="count-data text-center" onClick={this.seePosts.bind(this)}>
+                    <h6 className="count h2" data-to="150" data-speed="150">{this.state.posts.length}</h6>
                     <p className="m-0px font-w-600">Num. of Posts</p>
                   </div>
                 </div>
                 <div className="col-6 col-lg-3">
                   <div className="count-data text-center">
-                    <h6 className="count h2" data-to="850" data-speed="850">3</h6>
+                    <h6 className="count h2" data-to="850" data-speed="850">0</h6>
                     <p className="m-0px font-w-600">House Rent</p>
                   </div>
                 </div>
@@ -117,6 +153,7 @@ class ProfileView extends React.Component {
             </div>
           </div>
         </section>
+        {displayPosts}
       </div>
     )
   }
