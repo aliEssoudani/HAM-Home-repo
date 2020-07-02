@@ -5,7 +5,6 @@ import SelectAction from "./components/selectAction.jsx";
 import SearchedHome from "./components/searchedHome.jsx";
 import ProfileView from "./components/profileView.jsx";
 import PostView from "./components/postView.jsx";
-import ChatRoom from "./components/chatHome.jsx";
 
 class App extends React.Component {
   constructor(props) {

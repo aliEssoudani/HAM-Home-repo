@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PostView from "./postView.jsx";
 import SearchedHome from "./searchedHome.jsx";
-import ChatRoom from "./chatHome.jsx";
 
 import $ from "jquery";
 import axios from "axios";

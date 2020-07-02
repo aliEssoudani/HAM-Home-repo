@@ -3,10 +3,8 @@ import ReactDOM from "react-dom";
 import darkmode from "../../dist/script.js";
 import ProfileView from "./profileView.jsx";
 import SelectAction from "./selectAction.jsx";
-import ChatRoom from "./chatHome.jsx";
-import PostView from "./postView.jsx";
 import $ from "jquery";
-
+import axios from "axios";
 import {
   Form,
   Button,
@@ -22,6 +20,7 @@ import {
   CarouselItem,
   Accordion,
 } from "react-bootstrap";
+import Axios from "axios";
 
 class SearchedHome extends React.Component {
   constructor(props) {
@@ -49,12 +48,19 @@ class SearchedHome extends React.Component {
       feedback = document.getElementById("feedback");
 
     // Emit events
-    console.log(message, handle, btn, output, feedback);
+    console.log(message.value, handle, btn, output, feedback);
 
     btn.addEventListener("click", function () {
       socket.emit("chat", {
         message: message.value,
         handle: handle.value,
+      });
+      console.log(message.value, handle.value);
+      var dat = new Date().toString();
+      axios.post("/messages", {
+        sender: handle.value,
+        message: message.value,
+        date: dat,
       });
       message.value = "";
     });

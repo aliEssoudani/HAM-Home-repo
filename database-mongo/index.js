@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/hamHome",{ useMongoClient:true});
+mongoose.connect("mongodb://localhost:27017/hamHome", { useMongoClient: true });
 
 var db = mongoose.connection;
 
@@ -34,6 +34,24 @@ var selectAllUser = function (callback) {
   });
 };
 
+var messageSchema = mongoose.Schema({
+  sender: String,
+  message: String,
+  date: String,
+});
+
+var Message = mongoose.model("Message", messageSchema);
+
+var selectAllMessage = function (callback) {
+  Message.find({}, function (err, messages) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, messages);
+    }
+  });
+};
+
 var postSchema = mongoose.Schema({
   username: String,
   imagesrc: String,
@@ -62,3 +80,5 @@ module.exports.Post = Post;
 module.exports.db = db;
 module.exports.selectAllPost = selectAllPost;
 module.exports.selectAllUser = selectAllUser;
+module.exports.Message = Message;
+module.exports.selectAllMessage = selectAllMessage;

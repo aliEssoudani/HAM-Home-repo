@@ -3,12 +3,15 @@ var bodyParser = require("body-parser");
 var multer = require("multer");
 var samplePosts = require("../database-mongo/data.js");
 var posts = require("../database-mongo");
+var messages = require("../database-mongo");
 var path = require("path");
 var socket = require("socket.io");
+// const { loadingMessageCSS } = require("react-select/src/components/Menu");
 
 var app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/../react-client/dist"));
+
 /*set up of socket server */
 var server = app.listen(3000, function () {
   console.log("listening for requests on port 3000,");
@@ -28,8 +31,6 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("typing", data);
   });
 });
-
-//////////////////////////////
 
 // const storage = multer.diskStorage({
 //   destination: "../react-client/dist/uploads",
@@ -52,6 +53,10 @@ io.on("connection", (socket) => {
 app.post("/posts", (req, res) => {
   console.log(req.body);
   posts.Post.create(req.body);
+});
+
+app.post("/messages", (req, res) => {
+  messages.Message.create(req.body);
 });
 
 app.get("/posts", (req, res) => {
