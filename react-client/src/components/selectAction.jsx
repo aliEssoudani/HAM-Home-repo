@@ -4,6 +4,9 @@ import darkmode from "../../dist/script.js";
 // import RentView from "./rentView.jsx";
 import PostView from "./postView.jsx";
 import ProfileView from "./profileView.jsx";
+import CardHouse from "./rentView/cardHouse.jsx";
+// import Navbar from "./rentView/Navbar.jsx";
+import SelectBox from "./rentView/selectBox.jsx";
 import {
   Form,
   Button,
@@ -24,7 +27,11 @@ class SelectAction extends React.Component {
 
   // we should see if we need some props or information to pass to the other component
   seePost() {
-    ReactDOM.render(<RentView />, document.getElementById("app"));
+    ReactDOM.render(<div>
+       <CardHouse />
+      <Navbar />
+      <SelectBox />
+      </div>, document.getElementById("app"));
 
     // we should see if we need some props or information to pass to the other component
   }

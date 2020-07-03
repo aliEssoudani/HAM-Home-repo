@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PostView from "./postView.jsx";
-import SearchedHome from "./searchedHome.jsx";
-import SelectAction from "./selectAction.jsx";
-import ProfileView from "./profileView.jsx";
+import PostView from './postView.jsx';
+import SearchedHome from './searchedHome.jsx';
+import SelectAction from './selectAction.jsx';
+import ProfileView from './profileView.jsx';
 // import $ from "jquery";
 import axios from "axios";
 import {
@@ -26,8 +26,8 @@ class UpdatePost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [],
-    };
+      posts: []
+    }
   }
   seeSelectAction() {
     ReactDOM.render(<SelectAction />, document.getElementById("app"));
@@ -38,13 +38,11 @@ class UpdatePost extends React.Component {
   }
 
   render() {
-    const displayPosts = this.props.post.map((item, i) => {
-      console.log(item);
-      return (
-        <div className="profilePosts1" key={i}>
-          <p className="postDetails">
-            <img src={item.imagesrc} width="280px" height="170px" />
-          </p>
+      const displayPosts = this.props.post.map((item,i)=> {
+          console.log(item)
+        return (
+          <div className= "profilePosts1" key={i} >
+          <p className="postDetails"><img src={item.imagesrc} width='280px' height='170px'/></p>
           <p className="postDetails">Price : ${item.price}</p>
           <p className="postDetails">Rooms : {item.rooms}</p>
           <p className="postDetails">Address : {item.address}</p>
@@ -56,14 +54,12 @@ class UpdatePost extends React.Component {
           <p>{this.props.date}</p>
           <p>{this.props.rating}</p> */}
         </div>
-      );
-    });
+        )
+      }) 
     return (
-      <div>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand onClick={this.seeSelectAction.bind(this)}>
-            HAMhome
-          </Navbar.Brand>
+        <div>
+            <Navbar bg="dark" variant="dark">
+          <Navbar.Brand onClick={this.seeSelectAction.bind(this)}>HAMhome</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link></Nav.Link>
             <Nav.Link onClick={this.seeProfile.bind(this)}>Profile</Nav.Link>
@@ -71,8 +67,8 @@ class UpdatePost extends React.Component {
           </Nav>
         </Navbar>
         {displayPosts}
-      </div>
-    );
+        </div>
+    )
   }
 }
 

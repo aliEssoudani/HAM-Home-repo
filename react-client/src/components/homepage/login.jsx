@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import SelectAction from "../selectAction.jsx";
-import SignUp from "./signup.jsx";
+import SignUp from "./signup.jsx"
 
 class Login extends Component {
+
   seeSelectAction() {
     ReactDOM.render(<SelectAction />, document.getElementById("app"));
   }
 
-  seeSignUp() {
+  seeSignUp () {
     ReactDOM.render(<SignUp />, document.getElementById("app"));
   }
 
@@ -21,10 +22,7 @@ class Login extends Component {
               <div className="navbar-brand" to={"/sign-in"}>
                 HAM Home
               </div>
-              <div
-                className="collapse navbar-collapse"
-                id="navbarTogglerDemo02"
-              >
+              <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <div className="nav-link" to={"/sign-in"}>
@@ -32,11 +30,7 @@ class Login extends Component {
                     </div>
                   </li>
                   <li className="nav-item">
-                    <div
-                      className="nav-link"
-                      to={"/sign-up"}
-                      onClick={this.seeSignUp.bind(this)}
-                    >
+                    <div className="nav-link" to={"/sign-up"} onClick={this.seeSignUp.bind(this)}>
                       Sign up
                     </div>
                   </li>
@@ -45,51 +39,47 @@ class Login extends Component {
             </div>
           </nav>
         </div>
-        <form className="home">
-          <h3>Sign In</h3>
+      <form className="home">
+        <h3>Sign In</h3>
 
-          <div className="form-group">
-            <label>Email address</label>
+        <div className="form-group">
+          <label>Email address</label>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Enter email"
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter password"
+          />
+        </div>
+
+        <div className="form-group">
+          <div className="custom-control custom-checkbox">
             <input
-              type="email"
-              className="form-control"
-              placeholder="Enter email"
+              type="checkbox"
+              className="custom-control-input"
+              id="customCheck1"
             />
+            <label className="custom-control-label" htmlFor="customCheck1">
+              Remember me
+            </label>
           </div>
+        </div>
 
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-            />
-          </div>
-
-          <div className="form-group">
-            <div className="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                className="custom-control-input"
-                id="customCheck1"
-              />
-              <label className="custom-control-label" htmlFor="customCheck1">
-                Remember me
-              </label>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            className="btn btn-primary btn-block"
-            onClick={this.seeSelectAction.bind(this)}
-          >
-            Submit
-          </button>
-          <p className="forgot-password text-right">
-            Forgot <a href="#">password?</a>
-          </p>
-        </form>
+        <button type="submit" className="btn btn-primary btn-block" onClick={this.seeSelectAction.bind(this)}>
+          Submit
+        </button>
+        <p className="forgot-password text-right">
+          Forgot <a href="#">password?</a>
+        </p>
+      </form>
       </div>
     );
   }

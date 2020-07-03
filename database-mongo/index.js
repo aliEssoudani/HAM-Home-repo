@@ -37,7 +37,7 @@ var selectAllUser = function (callback) {
 var messageSchema = mongoose.Schema({
   sender: String,
   message: String,
-  date: String,
+  date:String
 });
 
 var Message = mongoose.model("Message", messageSchema);
