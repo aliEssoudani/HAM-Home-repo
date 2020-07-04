@@ -37,7 +37,8 @@ var selectAllUser = function (callback) {
 var messageSchema = mongoose.Schema({
   sender: String,
   message: String,
-  date:String
+  date: String,
+  description: String,
 });
 
 var Message = mongoose.model("Message", messageSchema);
@@ -62,6 +63,7 @@ var postSchema = mongoose.Schema({
   description: String,
   date: String,
   availibility: Boolean,
+  messages:String,
 });
 
 var Post = mongoose.model("Post", postSchema);

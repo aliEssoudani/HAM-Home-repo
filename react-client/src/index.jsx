@@ -11,6 +11,7 @@ import Navbar from "./components/rentView/Navbar.jsx";
 import CardHouse from "./components/rentView/cardHouse.jsx";
 import SelectBox from "./components/rentView/selectBox.jsx";
 import Home from "./components/homePage/App.js";
+import UpdatePost from "./components/updatePost.jsx";
 const mdbreact = require("mdbreact");
 const { Button, Collapse } = mdbreact;
 
@@ -38,7 +39,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Home />
+      <ProfileView />
       // <div>
       //   <CardHouse />
       // <Navbar />

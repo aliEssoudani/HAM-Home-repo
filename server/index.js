@@ -56,7 +56,20 @@ app.post("/posts", (req, res) => {
 });
 
 app.post("/messages", (req, res) => {
-  messages.Message.create(req.body);
+  posts.Post.find({ description: req.body.description }, (err, docs) => {
+    let newMessage = docs[0]._doc.messages + JSON.stringify(req.body);
+    console.log("newMessage", newMessage);
+    console.log(docs[0]._doc.messages);
+    posts.Post.update(
+      { description: req.body.description },
+      { messages: newMessage },
+      (err) => {
+        if (!err) {
+          console.log("updated");
+        }
+      }
+    );
+  });
 });
 
 app.get("/posts", (req, res) => {

@@ -25,7 +25,9 @@ import Axios from "axios";
 class SearchedHome extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      posts: [],
+    };
   }
 
   seeProfile() {
@@ -36,6 +38,7 @@ class SearchedHome extends React.Component {
   }
 
   chat() {
+    var description1 = this.props.post.description;
     $("#chatbox").show();
     // Make connection
     var socket = io.connect("http://localhost:3000");
@@ -57,10 +60,12 @@ class SearchedHome extends React.Component {
       });
       console.log(message.value, handle.value);
       var dat = new Date().toString();
+      console.log(description1);
       axios.post("/messages", {
         sender: handle.value,
         message: message.value,
         date: dat,
+        description: description1,
       });
       message.value = "";
     });

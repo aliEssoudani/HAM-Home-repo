@@ -1,4 +1,3 @@
-
 import React from "react";
 import ReactDOM from "react-dom";
 import ProfileView from "./profileView.jsx";
@@ -23,27 +22,27 @@ class PostView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      file:null
+      file: null,
     };
   }
-//   onFormSubmit(e){
-//     e.preventDefault();
-//     const formData = new FormData();
-//     formData.append('myImage',this.state.file);
-//     const config = {
-//         headers: {
-//             'content-type': 'multipart/form-data'
-//         }
-//     };
-//     axios.post("/upload",formData,config)
-//         .then((response) => {
-//             alert("The file is successfully uploaded");
-//         }).catch((error) => {
-//     });
-// }
-// onChange(e) {
-//     this.setState({file:e.target.files[0]});
-// }
+  //   onFormSubmit(e){
+  //     e.preventDefault();
+  //     const formData = new FormData();
+  //     formData.append('myImage',this.state.file);
+  //     const config = {
+  //         headers: {
+  //             'content-type': 'multipart/form-data'
+  //         }
+  //     };
+  //     axios.post("/upload",formData,config)
+  //         .then((response) => {
+  //             alert("The file is successfully uploaded");
+  //         }).catch((error) => {
+  //     });
+  // }
+  // onChange(e) {
+  //     this.setState({file:e.target.files[0]});
+  // }
 
   handleClick() {
     const username = $("#username").val();
@@ -52,10 +51,17 @@ class PostView extends React.Component {
     const imagesrc = "./uploads/" + $("#imagesrc").val().slice(12);
     const address = $("#address").val();
     const description = $("#description").val();
-    const date = new Date().toString()
-    const rating = 0
-    
-    if (username !== "" && price !== "" && rooms !== "" && imagesrc !== "" && address !== "" && description !== "") {
+    const date = new Date().toString();
+    const rating = 0;
+
+    if (
+      username !== "" &&
+      price !== "" &&
+      rooms !== "" &&
+      imagesrc !== "" &&
+      address !== "" &&
+      description !== ""
+    ) {
       axios.post("/posts", {
         username,
         imagesrc,
@@ -66,6 +72,7 @@ class PostView extends React.Component {
         description,
         date: date,
         availibility: true,
+        messages: "",
       });
       ReactDOM.render(<ProfileView />, document.getElementById("app"));
     }
@@ -88,15 +95,19 @@ class PostView extends React.Component {
         </Navbar>
         <div id="first">
           <Form className="rent">
-          <Form.Group as={Col}>
+            <Form.Group as={Col}>
               <Form.Label>
                 {" "}
                 <h5>username :</h5>{" "}
               </Form.Label>
-              <Form.Control type="text" id="username" value="Mohamed Amine Oueslati" />
+              <Form.Control
+                type="text"
+                id="username"
+                value="Mohamed Amine Oueslati"
+              />
             </Form.Group>
             <Form.Group as={Col}>
-            <Form.Label>
+              <Form.Label>
                 {" "}
                 <h5>Image :</h5>{" "}
               </Form.Label>
@@ -128,7 +139,7 @@ class PostView extends React.Component {
                 </InputGroup.Prepend>
               </InputGroup>
             </Form.Group>
-            <Form.Group as={Col} >
+            <Form.Group as={Col}>
               <Form.Label>
                 {" "}
                 <h5>Rooms :</h5>{" "}
@@ -136,14 +147,14 @@ class PostView extends React.Component {
               <Form.Control type="text" placeholder="Rooms" id="rooms" />
             </Form.Group>
 
-            <Form.Group as={Col} >
+            <Form.Group as={Col}>
               <Form.Label>
                 <h5>Address :</h5>
               </Form.Label>
               <Form.Control placeholder="1234 Main St" id="address" />
             </Form.Group>
 
-            <Form.Group as={Col} >
+            <Form.Group as={Col}>
               <Form.Label>
                 {" "}
                 <h5>Description :</h5>{" "}
@@ -176,11 +187,18 @@ class PostView extends React.Component {
               <h4>use the Google map</h4>
             </li>
           </ul>
-          <br/>
+          <br />
           <center>
-          <Button as={Col} variant="primary" type="submit"
-              id="submitPost" onClick={this.handleClick.bind(this)}>Submit</Button>
-            </center>
+            <Button
+              as={Col}
+              variant="primary"
+              type="submit"
+              id="submitPost"
+              onClick={this.handleClick.bind(this)}
+            >
+              Submit
+            </Button>
+          </center>
         </div>
       </div>
     );
